@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J NET by J TRUST BANK</title>
+    <link rel="icon" href="https://jnet.jtrustbank.co.id/eb-personal/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style type="text/css">
+        .carousel-3d-slide {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            top: 0;
+            border-radius: 1px;
+            border-color: #000;
+            border-color: rgba(0, 0, 0, .4);
+            border-style: solid;
+            background-size: cover;
+            background-color: #ccc;
+            display: block;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: left
+        }
+
+        .carousel-3d-slide img {
+            width: 100%
+        }
+
+        .carousel-3d-slide.current {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            z-index: 999
+        }
+    </style>
+    <style type="text/css">
+        .carousel-3d-controls[data-v-05517ad0] {
+            position: absolute;
+            top: 50%;
+            height: 0;
+            margin-top: -30px;
+            left: 0;
+            width: 100%;
+            z-index: 1000
+        }
+
+        .next[data-v-05517ad0],
+        .prev[data-v-05517ad0] {
+            width: 60px;
+            position: absolute;
+            z-index: 1010;
+            font-size: 60px;
+            height: 60px;
+            line-height: 60px;
+            color: #333;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-decoration: none;
+            top: 0
+        }
+
+        .next[data-v-05517ad0]:hover,
+        .prev[data-v-05517ad0]:hover {
+            cursor: pointer;
+            opacity: .7
+        }
+
+        .prev[data-v-05517ad0] {
+            left: 10px;
+            text-align: left
+        }
+
+        .next[data-v-05517ad0] {
+            right: 10px;
+            text-align: right
+        }
+
+        .disabled[data-v-05517ad0],
+        .disabled[data-v-05517ad0]:hover {
+            opacity: .2;
+            cursor: default
+        }
+    </style>
+    <style type="text/css">
+        .carousel-3d-container[data-v-07917306] {
+            min-height: 1px;
+            width: 100%;
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            margin: 20px auto;
+            box-sizing: border-box
+        }
+
+        .carousel-3d-slider[data-v-07917306] {
+            position: relative;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            perspective: 1000px
+        }
+    </style>
+    <style type="text/css">
+        .vue-notification-group {
+            display: block;
+            position: fixed;
+            z-index: 5000
+        }
+
+        .vue-notification-wrapper {
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        .notification-title {
+            font-weight: 600
+        }
+
+        .vue-notification-template {
+            background: #fff
+        }
+
+        .vue-notification,
+        .vue-notification-template {
+            display: block;
+            box-sizing: border-box;
+            text-align: left
+        }
+
+        .vue-notification {
+            font-size: 12px;
+            padding: 10px;
+            margin: 0 5px 5px;
+            color: #fff;
+            background: #44a4fc;
+            border-left: 5px solid #187fe7
+        }
+
+        .vue-notification.warn {
+            background: #ffb648;
+            border-left-color: #f48a06
+        }
+
+        .vue-notification.error {
+            background: #e54d42;
+            border-left-color: #b82e24
+        }
+
+        .vue-notification.success {
+            background: #68cd86;
+            border-left-color: #42a85f
+        }
+
+        .vn-fade-enter-active,
+        .vn-fade-leave-active,
+        .vn-fade-move {
+            transition: all .5s
+        }
+
+        .vn-fade-enter,
+        .vn-fade-leave-to {
+            opacity: 0
+        }
+
+        #contents {
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        .fade-in {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid ps-md-0">
+        <div class="row g-0">
+            <div class=" col-md-7 col-lg-7"
+                style="background-image: url('https://jnet.jtrustbank.co.id/eb-personal/eb-personal/static/img/kiri2.d2ded433.jpg');background-size: cover;">
+
+                <div class="row m-3" id="isi" style="display: none">
+
+                    <div class="text-white mt-n3 col-md-7 offset-md-2 text-allign">
+                        <h3 class="my-4" id="judul"></h3>
+                        <div id="carouselExampleDark" class="carousel carousel-dark slide my-3">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            </div>
+                            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
+                                <div class="carousel-inner" id="carouselInner">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div id="contents"></div>
+                        <p style="color: #93cffb;">By: jtrust</p>
+                    </div>
+                    <div class="mt-n3 col-md-7 offset-md-2">
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-5 col-lg-5 login mt-4">
+                <div class="wrap-form-input p-5">
+                    <img src="img/logo.f32bf329.png" alt="" width="200">
+                    <form class="row g-3 mt-3 needs-validation" novalidate>
+                        <div class="col-12 ">
+                            <label for="nama" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="nama" placeholder="John Doe" required>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Nama Lengkap
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="tempat" class="form-label">Tempat Lahir</label>
+                            <input type="text" class="form-control" id="tempat" placeholder="Tempat Lahir" required>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Tempat lahir
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <textarea class="form-control" id="alamat" placeholder="Jl. Sukasari" cols="10"
+                                rows="4"></textarea>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Alamat
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="no_telp" class="form-label">Nomor Telp/HP</label>
+                            <input type="number" class="form-control" id="no_telp" placeholder="08xxxxxxx" required>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Nomor Telp/HP
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="tanggal_lahir" class="form-label">Tanggal lahir</label>
+                            <input type="date" class="form-control" id="tanggal_lahir" required>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Tanggal Lahir
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="gender" class="form-label">Jenis Kelamin</label>
+                            <select class="form-control" required>
+                                <option>Laki-Laki</option>
+                                <option>Perempuan</option>
+                                </option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Jenis Kelamin
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="kewarganegaraan" class="form-label">Kewarganegaraan</label>
+                            <input type="text" class="form-control" id="kewarganegaraan" placeholder="Indonesia"
+                                required>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Kewarganegaraan
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="agama" class="form-label">Agama</label>
+                            <select class="form-control" required>
+                                <option>Islam</option>
+                                <option>Kristen</option>
+                                <option>Katolik</option>
+                                <option>Hindu</option>
+                                <option>Buddha</option>
+                                <option>Konghuchu</option>
+                                </option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Agama
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="status" class="form-label">Status Perkawinan</label>
+                            <select class="form-control" required>
+                                <option>Lajang</option>
+                                <option>Menikah</option>
+                                </option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Mohon mengisi Status Perkawinan
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button class="btn btn-info text-white" type="submit" id="submitForm">Kirim Data</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <script src="jtrust.js"></script>
+</body>
+
+</html>
