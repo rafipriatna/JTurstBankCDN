@@ -33,7 +33,7 @@ function updateContentAndCarousel(index) {
     carouselItem.setAttribute("data-bs-interval", "2000");
 
     const imgElement = document.createElement("img");
-    imgElement.src = `img/${image}`;
+    imgElement.src = `https://rafipriatna.github.io/JTurstBankCDN/img/${image}`;
     imgElement.className = "d-block w-100";
 
     carouselItem.appendChild(imgElement);
