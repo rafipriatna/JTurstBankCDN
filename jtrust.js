@@ -1,4 +1,4 @@
-const jsonFile = "/data/berita.json";
+const jsonFile = "https://rafipriatna.github.io/JTurstBankCDN/data/berita.json";
 let dataJSON = [];
 let currentIndex = 0;
 
